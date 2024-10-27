@@ -235,7 +235,7 @@ fetch(newUrl)
         )
     });
     
-    // Modifier la quntité des produits
+    // Modifier la qauntité des produits
     function down() {
         n = document.getElementById('quantity');
         n.value = parseInt(n.value)-1;
