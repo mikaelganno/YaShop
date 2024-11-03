@@ -8,7 +8,6 @@ if (cart.length > 0) {
     displayTotalCart();
     ClearButton();
 
-
 }
 
 // Affichage des produits présents dans le panier
@@ -31,9 +30,9 @@ function displayCart(product) {
                                     </td>
                                     <td>
                                         <div class="button-container">
-                                            <button class="cart-qty-plus" id="plus" type="button" value="+">+</button>
-                                            <input type="number" name="qty" id="quantity" min="1" class="qty form-control" value="${product.quantity}" data-index=${indexProduct} disabled>
-                                            <button class="cart-qty-minus" id="minus" type="button" value="-">-</button>
+                                            <button class="cart-qty-plus" id="plus" type="button" value="+" onclick="changeQuantity(${indexProduct}, ${product.quantity + 1})">+</button>
+                                            <input name="qty" id="quantity" class="qty form-control" value="${product.quantity}" data-index=${indexProduct}>
+                                            <button class="cart-qty-minus" id="minus" type="button" value="-" onclick="changeQuantity(${indexProduct}, ${product.quantity - 1})">-</button>
                                         </div>
                                     </td>
                                     <td>
@@ -69,112 +68,114 @@ function updateTotalCost() {
 
 // Affichage du montant total du panier
 function displayTotalCart() {
-    let discount = 0;
-    let shipping = 1000;
-    totaux = updateTotalCost()
-
-    if (totaux > 0 && totaux <= 250000) {
-        discount = 0.02
-    }
-    else if (totaux > 250000) {
-        discount = 0.04
-    }
+    var discount = 0;
+    var shipping = 0;
+    const flat = document.getElementById('flat');
+    const best = document.getElementById('best');
+    totaux = updateTotalCost();
 
     const totalContent = document.getElementById("totalPrice");
-    totalContent.innerHTML += totaux;
+    totalContent.textContent += totaux;
 
     const productShipTax = document.getElementById("subtotal");
-    productShipTax.innerHTML += totaux;
+    productShipTax.textContent += totaux;
 
     const productDiscount = document.getElementById("discount");
-    productDiscount.innerHTML += discount * totaux;
+    productDiscount.textContent += discount * totaux;
 
     const productShipping = document.getElementById("shipping");
-    productShipping.innerHTML += shipping;
+    productShipping.textContent += shipping;
 
     const productGrandTotal = document.getElementById("grand-total");
-    productGrandTotal.innerHTML += totaux * (1 - discount) + shipping;
+    productGrandTotal.textContent += totaux * (1 - discount) + shipping;
+
+    function shippingFlat(discount) {
+
+        best.addEventListener("click", () => {
+            shipping = 0;
+            shippingFlatTextContent();
+        });
+    
+        flat.addEventListener("click", () => {
+            shipping = 1000;
+            shippingFlatTextContent();
+        });
+        shippingFlatTextContent();
+
+        function shippingFlatTextContent() {
+            productShipping.textContent = `$` + shipping;
+            productGrandTotal.textContent = `$` + (totaux * (1 - discount) + shipping);
+        }
+
+    }
+
+    shippingFlat(discount);
+
+    // Coupons de reduction
+    const coupon = document.getElementById('coupon');
+    const applyCoupon = document.getElementById('applyCoupon');
+    const couponError = document.querySelector('.couponError');
+    const couponSuccess = document.querySelector(".couponSuccess")
+
+
+    coupon.addEventListener("keyup", (e) => {
+        let verifyCoupon = e.target.value;
+        applyCoupon.addEventListener("click", () => {
+            apply(verifyCoupon);
+        });
+        coupon.addEventListener("change", () => {
+            apply(verifyCoupon);
+        });    
+    })
+
+    function apply(verifyCoupon) {
+        if (verifyCoupon === "miki") {
+            couponSuccess.textContent = `You get 5% off 🎁`;
+            couponError.textContent = ``;
+            let discount = 0.05;
+            shippingFlat(discount);
+            shippingFlatTextContent();
+        } else {
+            couponError.textContent = `Invalid coupon ‼`;
+            couponSuccess.textContent = ``;
+            shippingFlat(discount);
+        }
+    }
 }
 
 
 
 
-//Gestion des quantités de produits
-const inputList = document.querySelectorAll(".qty");
-/*for (input of inputList) {
-    let ind = input.getAttribute("data-index");
-    input.addEventListener("click", (e) => {
-        const newValue = e.target.value;
-        for (products of cart) {
-            let index = cart.indexOf(products);
-            let qty = cart[index].quantity;
-            if (index == ind && newValue > qty) {
-                cart[index].quantity++;
-                localStorage.setItem("products", JSON.stringify(cart));
-                location.reload();
-            } else if (index == ind && newValue < qty) {
-               cart[index].quantity--;
-              localStorage.setItem("products", JSON.stringify(cart));
-              location.reload();
-            } else {
-                newValue == qty;
-            }
-        }
-    })
-}*/
 
+//Gestion des quantités de produits dans le panier
 
-// Incrémenter et décrementer les produits du panier
-const plusList = document.querySelectorAll('.cart-qty-plus');
-const minusList = document.querySelectorAll('.cart-qty-minus');
-const quantity = document.getElementById('quantity');
-
-
-
-plusList.forEach(plus => {
+    // Gestion des inputs
+    const inputList = document.querySelectorAll(".qty");
     for (input of inputList) {
         let ind = input.getAttribute("data-index");
-        plus.addEventListener("click", () => {
-            const newValue = input.value;
-            for (product of cart) {
-                let index = cart.indexOf(product);
-                let qty = cart[index].quantity;
-                if (index == ind && newValue > qty) {
-                    cart[index].quantity++;
-                    localStorage.setItem("products", JSON.stringify(cart));
-                    location.reload();
-                } else {
-                    newValue == qty;
+        input.addEventListener("keyup", (e) => {
+            const newValue = e.target.value;
+            for (products of cart) {
+                let index = cart.indexOf(products);
+                if (index == ind && newValue > 0) {
+                    cart[index].quantity = newValue;
                     localStorage.setItem("products", JSON.stringify(cart));
                     location.reload();
                 }
             }
         })
     }
-});
 
-
-minusList.forEach(minus => {
-    minus.addEventListener("click", () => {
-        for (input of inputList) {
-            let ind = input.getAttribute("data-index");
-            const newValue = input.value;
-            for (products of cart) {
-                let index = cart.indexOf(products);
-                let qty = cart[index].quantity;
-                if (index == ind && quantity.value > 1 && newValue < qty ) {
-                    cart[index].quantity--;
-                    localStorage.setItem("products", JSON.stringify(cart));
-                    location.reload();
-                } else {
-                    newValue == qty;
-                    localStorage.setItem("products", JSON.stringify(cart));
-                    location.reload();
-                }
+    // Gestion des boutons d'incrémentation et de décrementation
+    function changeQuantity(key, quantity) { 
+        for (product of cart) {
+            if (quantity > 0) {
+                cart[key].quantity = quantity;
+                localStorage.setItem("products", JSON.stringify(cart));
+                location.reload();
             }
         }
-    })
-});
+    }
 
 
 // Fonction pour supprimer un produit
@@ -193,3 +194,6 @@ function removeAll() {
     ClearButton();
     displayCart();
 }
+
+
+

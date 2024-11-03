@@ -199,6 +199,35 @@ const products = [
         "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
         "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
     },
+    {
+        "_id": 9,
+        "name": "women summer tosca shoe",
+        "price": 18000,
+        "prix": 20500,
+        "quantity": 1,
+        "image": "http://localhost:3000/home3.jpg",
+        "alt": "alt8",
+        "description": "8Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
+        "size1": 40,
+        "size2": 41,
+        "size3": 42,
+        "size4": 43,
+        "colors": ["pink", "yellow", "white"],
+        "infosq1": "Brands",
+        "infosq2": "Activity",
+        "infosq3": "Material",
+        "infosq4": "Gender",
+        "infosr1": "Kappa",
+        "infosr2": "Running",
+        "infosr3": "Fleece",
+        "infosr4": "Men",
+        "reviewn1": "Sarah",
+        "reviewn2": "Faizal",
+        "reviewd1": "7/3/24",
+        "reviewd2": "1/3/24",
+        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+    },
 ]; 
 
 exports.find = () => {

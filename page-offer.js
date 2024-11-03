@@ -26,3 +26,29 @@ const countdownInterval = setInterval(() => {
 
 }, 1000);
 
+// SearchBar Events 
+const searchBar = document.getElementById('search');
+searchBar.addEventListener("keyup", (e) => {
+    const searchedLetters = e.target.value;
+    const searchButton = document.getElementById("searchButton");
+    const cardfeat = document.querySelectorAll("#item .item, #items .item");
+    console.log(cardfeat);
+    filterElements(searchedLetters, cardfeat);
+    searchBar.addEventListener("click", () => {
+        location.reload();
+    });
+    searchButton.addEventListener("click", filterElements(searchedLetters, cardfeat));
+});
+
+
+function filterElements(letters, elements) {
+    if (letters.length > 0) {
+        for (let i = 0; i < elements.length; i++) {
+            if (elements[i].textContent.toLowerCase().includes(letters)) {
+                elements[i].style.display = "block";
+            } else {
+                elements[i].style.display = "none";
+            }
+        }
+    }
+}

@@ -77,9 +77,9 @@ fetch(newUrl)
                                        <span class="normal">XAF${product.prix}</span>
                                       `;
 
-            //const ProductColors = document.getElementById('colors');
-            //ProductColors.innerHTML = ` 
-            //                            `;
+            /*const ProductColors = document.getElementById('colors');
+             *ProductColors.innerHTML = ` 
+             *                            `;*/
 
             const productInfos = document.getElementById('infos');
             productInfos.innerHTML = `<li><span>${product.infosq1}</span> <span>${product.infosr1}</span></li>
@@ -246,4 +246,31 @@ fetch(newUrl)
     function up() {
         n = document.getElementById('quantity');
         n.value = parseInt(n.value)+1;
+    }
+
+    // SearchBar Events 
+    const searchBar = document.getElementById('search');
+    searchBar.addEventListener("keyup", (e) => {
+        const searchedLetters = e.target.value;
+        const searchButton = document.getElementById("searchButton");
+        const cardfeat = document.querySelectorAll("#item .item, #items .item");
+        console.log(cardfeat);
+        filterElements(searchedLetters, cardfeat);
+        searchBar.addEventListener("click", () => {
+            location.reload();
+        });
+        searchButton.addEventListener("click", filterElements(searchedLetters, cardfeat));
+    });
+
+
+    function filterElements(letters, elements) {
+        if (letters.length > 0) {
+            for (let i = 0; i < elements.length; i++) {
+                if (elements[i].textContent.toLowerCase().includes(letters)) {
+                    elements[i].style.display = "block";
+                } else {
+                    elements[i].style.display = "none";
+                }
+            }
+        }
     }

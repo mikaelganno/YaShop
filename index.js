@@ -18,7 +18,7 @@ fetch(url)
             const feat = document.getElementById('item');
 
             card.innerHTML += `
-                    
+                    <div class="item">
                         <div class="media">
                             <div class="thumbnail object-cover">
                             <a href="./page-single-copie.html?_id=${product._id}">
@@ -50,6 +50,7 @@ fetch(url)
                                 <p>Free Shipping</p>
                             </div>
                         </div>
+                    </div>
                     
                                 `;               
             feat.innerHTML += `
@@ -94,3 +95,31 @@ fetch(url)
                                 `;
         }
     }
+
+
+// SearchBar Events 
+const searchBar = document.getElementById('search');
+searchBar.addEventListener("keyup", (e) => {
+    const searchedLetters = e.target.value;
+    const searchButton = document.getElementById("searchButton");
+    const cardfeat = document.querySelectorAll("#item .item, #items .item");
+    console.log(cardfeat);
+    filterElements(searchedLetters, cardfeat);
+    searchBar.addEventListener("click", () => {
+        location.reload();
+    });
+    searchButton.addEventListener("click", filterElements(searchedLetters, cardfeat));
+});
+
+
+function filterElements(letters, elements) {
+    if (letters.length > 0) {
+        for (let i = 0; i < elements.length; i++) {
+            if (elements[i].textContent.toLowerCase().includes(letters)) {
+                elements[i].style.display = "grid";
+            } else {
+                elements[i].style.display = "none";
+            }
+        }
+    }
+}

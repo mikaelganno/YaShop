@@ -498,8 +498,12 @@
                                 <div class="cart-summary styled">
                                     <div class="item">
                                         <div class="coupon">
-                                            <input type="text" placeholder="Enter coupon">
-                                            <button>Apply</button>
+                                            <input type="text" placeholder="Enter coupon" id="coupon">
+                                            <button id="applyCoupon">Apply</button>
+                                        </div>
+                                        <div class="error">
+                                            <p class="couponError"></p>
+                                            <p class="couponSuccess"></p>
                                         </div>
                                         <div class="shipping-rate collapse">
                                             <div class="has-child expand">
@@ -541,12 +545,12 @@
                                                         <form action="">
                                                             <p>
                                                                 <span>Flat: $1000</span>
-                                                                <input type="radio" name="rate-option" id="flat" checked>
+                                                                <input type="radio" name="rate-option" id="flat">
                                                                 <label for="flat" class="circle"></label>
                                                             </p>
                                                             <p>
                                                                 <span>No Flat: $0</span>
-                                                                <input type="radio" name="rate-option" id="best">
+                                                                <input type="radio" name="rate-option" id="best" checked>
                                                                 <label for="best" class="circle"></label>
                                                             </p>
                                                         </form>
