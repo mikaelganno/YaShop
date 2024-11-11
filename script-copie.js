@@ -1,23 +1,23 @@
-//Copy menu for mobile
+// Copy menu for mobile
 function copyMenu() {
-    //copy inside .dpt-cat to .departments
+    // copy inside .dpt-cat to .departments
     var dptCategory = document.querySelector('.dpt-cat');
     var dptPlace = document.querySelector('.departments');
     dptPlace.innerHTML = dptCategory.innerHTML;
 
-    //copy inside nav to nav
+    // copy inside nav to nav
     var mainNav = document.querySelector('.header-nav nav');
     var navPlace = document.querySelector('.off-canvas nav');
     navPlace.innerHTML = mainNav.innerHTML;
 
-    //copy .header-top .wrapper to .thetop-nav
+    // copy .header-top .wrapper to .thetop-nav
     var topNav = document.querySelector('.header-top .wrapper');
     var topPlace = document.querySelector('.off-canvas .thetop-nav');
     topPlace.innerHTML = topNav.innerHTML; 
 }
 copyMenu();
 
-//show mobile menu
+// show mobile menu
 const menuButton = document.querySelector('.trigger'),
         closeButton = document.querySelector('.t-close'),
         addclass = document.querySelector('.site');
@@ -29,7 +29,7 @@ closeButton.addEventListener('click', function() {
 })
 
 
-//show sub menu on mobile
+// show sub menu on mobile
 const submenu = document.querySelectorAll('.has-child .icon-small');
 submenu.forEach((menu) => menu.addEventListener('click', toggle));
 
@@ -40,6 +40,7 @@ function toggle(e){
     this.closest('.has-child').classList.toggle('expand')
 }
 
+// show cart on click --headNav
 const charriot = document.querySelector(".iscart");
 const mini = document.querySelector(".cart-trigger");
 const navlinks = document.querySelector(".mini-cart");
@@ -51,71 +52,136 @@ mini.addEventListener('click', () => {
     navlinks.classList.toggle('char');
 })
 
-//slider
-const swiper = new Swiper('.swiper', {
-    loop: true,
 
-    pagination: {
-      el: '.swiper-pagination',
-    },
-  
-});
+// Panier
+const cart = JSON.parse(localStorage.getItem('products')) || [];
 
-//show search
+// Panier des souhaits
+const wishCart = JSON.parse(localStorage.getItem('wishproducts')) || [];
+
+// Mini Carte 
+const miniCartItem = document.getElementById("mini-cart-item");
+if (cart.length > 0) {
+    for (product of cart) {
+        displayMiniCart(product);
+    }
+
+}
+
+function displayMiniCart(product) {
+    const indexProduct = cart.indexOf(product);
+    const cartNumberList = document.querySelectorAll('.item-number.numero');
+    const cartTotal = document.querySelector('.cart-total');
+    let subtotalPrice = 0;
+
+    miniCartItem.innerHTML += `
+                                <tr data-id="${product.id}">
+                            <td>
+                                <div class="product-img">
+                                    <div class="img-prdct">
+                                        <img src="${product.bigImage[0]}" alt="${product.alt}">
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="nom">
+                                <div>
+                                    <p>${product.name}</p>
+                                    <p>${product.colors}</p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="button-container">
+                                    <button class="cart-qty-plus" type="button" onclick="changeQuantity(${indexProduct}, ${product.quantity + 1})" value="+">+</button>
+                                    <input type="text" name="qty" id="quantity" min="1" class="qty form-control" value=${product.quantity} data-index=${indexProduct}>
+                                    <button class="cart-qty-minus" type="button" onclick="changeQuantity(${indexProduct}, ${product.quantity - 1})" value="-">-</button>
+                                </div>
+                            </td>
+                            <td>
+                                <span>$${product.price}</span>
+                            </td>
+                        </tr>  `;
+    
+    // Cart totalPrice
+    for (product of cart) {
+        subtotalPrice += product.quantity * product.price
+    }
+    cartTotal.textContent = `$` + subtotalPrice;
+    inputCartQuantity();  
+
+    // Cart Quantity of products
+    cartNumberList.forEach(cartNumber => {
+        cartNumber.textContent = indexProduct + 1;
+    })
+}
+
+// Gestion des quantités de produits dans la mini carte et le panier
+
+// A- Gestion des inputs
+function inputCartQuantity() {
+    const inputList = document.querySelectorAll(".qty");
+    for (input of inputList) {
+        let ind = input.getAttribute("data-index");
+        input.addEventListener("keyup", (e) => {
+            const newValue = e.target.value;
+            for (products of cart) {
+                let index = cart.indexOf(products);
+                if (index == ind && newValue > 0) {
+                    cart[index].quantity = Number(newValue);
+                    localStorage.setItem("products", JSON.stringify(cart));
+                    location.reload();
+                }
+            }
+        })
+    }
+}
+
+// B- Gestion des boutons d'incrémentation et de décrementation
+function changeQuantity(key, quantity) { 
+    for (product of cart) {
+        if (quantity > 0) {
+            cart[key].quantity = quantity;
+            localStorage.setItem("products", JSON.stringify(cart));
+            location.reload();
+        }
+    }
+}
+
+// WishCart quantity of products
+
+if (wishCart.length > 0) {
+    for (product of wishCart) {
+        displayWishCart(product);
+    }
+
+}
+
+function displayWishCart(product) {
+    const indexProduct = wishCart.indexOf(product);
+    const wishListNumber = document.querySelector('.item-number.number');
+    wishListNumber.textContent = indexProduct + 1;
+}
+
+// show search
 const searchButton = document.querySelector('.t-search'),
-      tClose = document.querySelector('.search-close'),
-      showClass = document.querySelector('.site');
-searchButton.addEventListener('click', function() {
-    showClass.classList.toggle('showsearch')
+     tClose = document.querySelector('.search-close'),
+     showClass = document.querySelector('.search-bottom');
+searchButton.addEventListener("click", function() {
+    showClass.classList.toggle('showsearch');
 })
-tClose.addEventListener('click', function(){
-    showClass.classList.remove('showsearch')
+tClose.addEventListener("click", function() {
+    showClass.classList.remove('showsearch');
 })
 
-//show dpt menu
+// show dpt menu
 const dptButton = document.querySelector('.dpt-cat .dpt-trigger'),
       dptClass = document.querySelector('.site');
 dptButton.addEventListener('click', function() {
-    dptClass.classList.toggle('showdpt')
+    dptClass.classList.toggle('showdpt');
 })
 
-// product image slider
-var productThumb = new Swiper('.small-image', {
-    loop: true,
-    spaceBetween: 10,
-    slidesPerView: 3,
-    freeMode: true,
-    watchSlidesProgress: true,
-    breakpoints: {
-        481: {
-            spaceBetween: 32,
-        }
-    }
-});
-var productBig = new Swiper ('.big-image', {
-    loop: true,
-    autoHeight: true,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    thumbs: {
-        swiper: productThumb,
-    }
-})
 
-//stock products bar width percentage
-var stocks = document.querySelectorAll('.products .stock');
-for (let x = 0; x < stocks.length; x++){
-    let stock = stocks[x].dataset.stock,
-    available = stocks[x].querySelector('.qty-available').innerHTML,
-    sold = stocks[x].querySelector('.qty-sold').innerHTML,
-    percent = sold*100/stock;
-
-    stocks[x].querySelector('.available').style.width = percent + '%';
-}
-
-//show cart on click
+/*
+// show cart on click --footNav
 const divtoShow ='.mini-cart';
 const divPopup = document.querySelector(divtoShow);
 const divTrigger = document.querySelector('.cart-trigger');
@@ -128,19 +194,14 @@ divTrigger.addEventListener('click', () => {
     }, 250)
 })
 
-//close by click outside
+// close by click outside
 document.addEventListener('click', (e) => {
     const isClosest = e.target.closest(divtoShow);
     if(!isClosest && divPopup.classList.contains('show')) {
-        divPopup.classList.remove('show')
+        divPopup.classList.remove('show');
     }
 })
+*/
 
-//show modal on load
-window.onload = function () {
-    document.querySelector('.site').classList.toggle('showmodal')
-}
-document.querySelector('.modalclose').addEventListener('click', function() {
-    document.querySelector('.site').classList.remove('showmodal')
-})
+
 

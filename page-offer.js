@@ -27,18 +27,22 @@ const countdownInterval = setInterval(() => {
 }, 1000);
 
 // SearchBar Events 
-const searchBar = document.getElementById('search');
-searchBar.addEventListener("keyup", (e) => {
-    const searchedLetters = e.target.value;
-    const searchButton = document.getElementById("searchButton");
-    const cardfeat = document.querySelectorAll("#item .item, #items .item");
-    console.log(cardfeat);
-    filterElements(searchedLetters, cardfeat);
-    searchBar.addEventListener("click", () => {
-        location.reload();
+const searchBarList = document.querySelectorAll('#search');
+searchBarList.forEach(searchBar => {
+    searchBar.addEventListener("keyup", (e) => {
+        const searchedLetters = e.target.value;
+        const searchButtonList = document.querySelectorAll("#searchButton");
+        const cardfeat = document.querySelectorAll("#item .item, #items .item");
+        console.log(cardfeat);
+        filterElements(searchedLetters, cardfeat);
+        searchBar.addEventListener("click", () => {
+            location.reload();
+        });
+        searchButtonList.forEach(searchButton => {
+            searchButton.addEventListener("click", filterElements(searchedLetters, cardfeat));
+        })
     });
-    searchButton.addEventListener("click", filterElements(searchedLetters, cardfeat));
-});
+})
 
 
 function filterElements(letters, elements) {
@@ -51,4 +55,15 @@ function filterElements(letters, elements) {
             }
         }
     }
+}
+
+// stock products bar width percentage
+var stocks = document.querySelectorAll('.products .stock');
+for (let x = 0; x < stocks.length; x++){
+    let stock = stocks[x].dataset.stock,
+    available = stocks[x].querySelector('.qty-available').innerHTML,
+    sold = stocks[x].querySelector('.qty-sold').innerHTML,
+    percent = sold*100/stock;
+
+    stocks[x].querySelector('.available').style.width = percent + '%';
 }

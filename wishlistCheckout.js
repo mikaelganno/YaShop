@@ -2,15 +2,15 @@ checkShip = JSON.parse(sessionStorage.getItem('checkship')) || [];
 checkDisc = JSON.parse(sessionStorage.getItem('checkdisc')) || [];
 
 
-if (cart.length > 0) {
-    for (product of cart) {
-        displayCart(product);
+if (wishCart.length > 0) {
+    for (product of wishCart) {
+        displayWishCart(product);
     }
 
 }
 
 // Affichage des produits présents dans le panier
-function displayCart(product) {
+function displayWishCart(product) {
     const productList = document.getElementById("checkout__items");
     const summaryTotals = document.getElementById("summary-totals");
 
@@ -61,7 +61,7 @@ function displayCart(product) {
 
 function updateTotalCost() {
     let totalCart = 0;
-    cart.forEach((product) => {
+    wishCart.forEach((product) => {
         totalCart = totalCart + (product.quantity * product.price);
     });
     return totalCart;

@@ -33,7 +33,7 @@
                             <ul class="flexitem main-links">
                                 <li><a href="#">Blog</a></li>
                                 <li><a href="#">Feature Products</a></li>
-                                <li><a href="#">Wishlist</a></li>
+                                <li><a href="http://127.0.0.1:5500/wishlist.html">Wishlist</a></li>
                             </ul>
                         </div>
                         <div class="right">
@@ -177,10 +177,10 @@
                         </div>
                         <div class="right">
                             <ul class="flexitem second-links">
-                                <li class="mobile-hide">
-                                    <a href="#">
+                                <li>
+                                    <a href="http://127.0.0.1:5500/wishlist.html">
                                     <div class="icon-large"><i class="ri-heart-line"></i></div>
-                                    <div class="fly-item"><span class="item-number">0</span></div>
+                                    <div class="fly-item"><span class="item-number number">0</span></div>
                                     </a>
                                 </li>
                                 <li>
@@ -202,7 +202,57 @@
                                             <div class="cart-body">
                                                 <ul class="products mini">
                                                     <div class="listCart">
-                                                        <div class="item">
+                                                        <div id="mini-cart-item" class="item">
+                                                            <!--<tr>
+                                                                <td>
+                                                                    <div class="product-img">
+                                                                        <div class="img-prdct">
+                                                                            <img src="assets/products/home1.jpg" alt="">
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="nom">
+                                                                    <div>
+                                                                        <p>Vonanda Velvet Sofa Couch</p>
+                                                                        <p>white</p>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="button-container">
+                                                                        <button class="cart-qty-plus" type="button" onclick="up()" value="+">+</button>
+                                                                        <input type="text" name="qty" id="quantity" min="1" class="qty form-control" value="1">
+                                                                        <button class="cart-qty-minus" type="button" onclick="down()" value="-">-</button>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <span>$140000</span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    <div class="product-img">
+                                                                        <div class="img-prdct">
+                                                                            <img src="assets/products/home1.jpg" alt="">
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="nom">
+                                                                    <div>
+                                                                        <p>Vonanda Velvet Sofa Couch</p>
+                                                                        <p>white</p>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <div class="button-container">
+                                                                        <button class="cart-qty-plus" type="button" onclick="up()" value="+">+</button>
+                                                                        <input type="text" name="qty" id="quantity" min="1" class="qty form-control" value="1">
+                                                                        <button class="cart-qty-minus" type="button" onclick="down()" value="-">-</button>
+                                                                    </div>
+                                                                </td>
+                                                                <td>
+                                                                    <span>$140000</span>
+                                                                </td>
+                                                            </tr>-->
                                                         </div>
                                                     </div>
                                                 </ul>
@@ -231,7 +281,7 @@
                                 <div class="dpt-head">
                                     <div class="main-text">All Departments</div>
                                     <div class="mini-text mobile-hide">Total 1059 Products</div>
-                                    <a href="#" class="dpt-trigger mobile-hide">
+                                    <a class="dpt-trigger mobile-hide">
                                         <i class="ri-menu-3-line ri-xl"></i>
                                         <i class="ri-close-line ri-xl"></i>
                                     </a>
@@ -440,7 +490,7 @@
                                             </div>
                                             <div class="big-image">
                                                 <div class="big-image-wrapper swiper-wrapper">
-                                                    <div class="image-show swiper-slide">
+                                                    <!--<div class="image-show swiper-slide">
                                                         <a data-fslightbox href="assets/products/shoe1.jpg"><img src="assets/products/shoe1.jpg" alt="shoe1"></a>
                                                     </div>
                                                     <div class="image-show swiper-slide">
@@ -451,7 +501,7 @@
                                                     </div>
                                                     <div class="image-show swiper-slide">
                                                         <a data-fslightbox href="assets/products/shoe1-3.jpg"><img src="assets/products/shoe1-3.jpg" alt="shoe1-3"></a>
-                                                    </div>
+                                                    </div>-->
                                                 </div>
                                                 <div class="swiper-button-next"></div>
                                                 <div class="swiper-button-prev"></div>
@@ -459,7 +509,7 @@
 
                                             <div thumbSlider="" class="small-image">
                                                 <ul class="small-image-wrapper flexitem swiper-wrapper">
-                                                    <li class="thumbnail-show swiper-slide">
+                                                    <!--<li class="thumbnail-show swiper-slide">
                                                         <img src="assets/products/shoe1.jpg" alt="shoe1">
                                                     </li>
                                                     <li class="thumbnail-show swiper-slide">
@@ -470,7 +520,7 @@
                                                     </li>
                                                     <li class="thumbnail-show swiper-slide">
                                                         <img src="assets/products/shoe1-3.jpg" alt="shoe1-3">
-                                                    </li>
+                                                    </li>-->
                                                 </ul>
                                             </div>
                                         </div>
@@ -481,8 +531,8 @@
                                             <div class="content">
                                                 <div class="rating">
                                                     <div class="stars"></div>
-                                                    <a href="#" class="mini-text">2,251 reviews</a>
-                                                    <a href="#" class="add-review mini-text">Add Your Review</a>
+                                                    <a class="mini-text">2,251 reviews</a>
+                                                    <a href="#review-form" class="add-review mini-text">Add Your Review</a>
                                                 </div>
                                                 <div class="stock-sku">
                                                     <span class="available">In Stock</span>
@@ -492,40 +542,38 @@
                                                     <span class="current">XAF8000</span>
                                                     <span class="normal">XAF11900</span>
                                                 </div>
-                                                <div class="colors">
-                                                    <p>Color</p>
-                                                    <div class="variant">
-                                                        <div class="item_content_settings_color">
-                                                            <select name="color-select" id="colors">
-                                                                <option value="">--SVP, choisissez une couleur --</option>
-                                                                <!--<option value="grey">grey</option>
-                                                                <option value="blue">blue</option>
-                                                                <option value="black">black</option>-->
-                                                            </select>
-                                                        </div>   
-                                                    </div>
+                                                <p class="colors-title">Colors</p>
+                                                <div id="colors-button" class="colors">
+                                                    <!--<div class="color">
+                                                        <p>
+                                                            <input type="radio" name="colors" id="product-colors">
+                                                            <label for="blue" class="circle"></label>
+                                                        </p>
+                                                    </div>-->
                                                 </div>
                                                 <div class="actions">
-                                                    <div class="qty-control flexitem">
-                                                        <button class="minus circle" onclick="down()">-</button>
+                                                    <div id="actions" class="qty-control flexitem">
+                                                        <!--<button class="minus circle" onclick="down()">-</button>
                                                         <input type="text" id="quantity" name="itemQuantity" class="val" value="1" min="1" max="99999">
-                                                        <button class="plus circle" onclick="up()">+</button>
+                                                        <button class="plus circle" onclick="up()">+</button>-->
                                                     </div>
                                                     <div class="button-cart">
                                                         <button id="addToCart" class="primary-button">Add to cart</button>
                                                     </div>
                                                     <div class="wish-share">
                                                         <ul class="flexitem second-links">
-                                                            <li>
-                                                                <a href="#">
-                                                                <span class="icon-large"><i class="ri-heart-line"></i></span>
-                                                                <span>Wishlist</span>
+                                                            <li class="wishlist">
+                                                                <a>
+                                                                    <span class="icon-large"><i class="ri-heart-line"></i></span>
+                                                                    <span>Wishlist</span>
                                                                 </a>
                                                             </li>
-                                                            <li><a href="#">
-                                                                <span class="icon-large"><i class="ri-share-line"></i></span>
-                                                                <span>Share</span>
-                                                            </a></li>
+                                                            <li>
+                                                                <a>
+                                                                    <span class="icon-large"><i class="ri-share-line"></i></span>
+                                                                    <span>Share</span>
+                                                                </a>
+                                                            </li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -534,10 +582,10 @@
                                                         <li class="has-child expand">
                                                             <a href="#0" class="icon-small">Information</a>
                                                             <ul id="infos" class="content">
-                                                                <li><span>Brands</span> <span>Nike</span></li>
+                                                                <!--<li><span>Brands</span> <span>Nike</span></li>
                                                                 <li><span>Activity</span> <span>Running</span></li>
                                                                 <li><span>Material</span> <span>Fleece</span></li>
-                                                                <li><span>Gender</span> <span>Men</span></li>
+                                                                <li><span>Gender</span> <span>Men</span></li>-->
                                                             </ul>
                                                         </li>
                                                         <li class="has-child">
@@ -1202,7 +1250,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="http://127.0.0.1:5500/wishlist.html">
                                     <i class="ri-heart-line"></i>
                                     <span>Wishlist</span>
                                 </a>
@@ -1218,7 +1266,7 @@
                                     <i class="ri-shopping-cart-line"></i>
                                     <span>Cart</span>
                                     <div class="fly-item">
-                                        <span class="item-number numero">0</span>
+                                        <span class="item-number numero"></span>
                                     </div>
                                 </a>
                             </li>
@@ -1254,7 +1302,7 @@
     </div>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fslightbox/3.3.1/index.min.js"></script>
-    <script src="script-copie.js"></script>
     <script src="page-single.js"></script>
+    <script src="script-copie.js"></script>
 </body>
 </html>

@@ -1,16 +1,12 @@
-// Panier
-const cart = JSON.parse(localStorage.getItem('products')) || [];
-
-
 // Class Product
 class Product {
-    constructor (id, name, description, price, prix, image, alt, colors, quantity) {
+    constructor (id, name, description, price, prix, bigImage, alt, colors, quantity) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = +price;
         this.prix = +prix;
-        this.image = image;
+        this.bigImage = bigImage;
         this.alt = alt;
         this.colors = colors;
         this.quantity = +quantity;
@@ -37,55 +33,12 @@ fetch(newUrl)
             const productReduction = document.getElementById('reduction');
             productReduction.innerHTML = `<span class="discount">${parseInt(100 - product.price/product.prix*100)}%<br>OFF</span>`;
 
-            const productBigImage = document.querySelector('.big-image-wrapper');
-            productBigImage.innerHTML = `
-            <div class="image-show swiper-slide">
-                <a data-fslightbox href="${product.image}"><img src="${product.image}" alt=${product.alt}></a>
-            </div>
-            <div class="image-show swiper-slide">
-                <a data-fslightbox href="${product.image}"><img src="${product.image}" alt=${product.alt}></a>
-            </div>
-            <div class="image-show swiper-slide">
-                <a data-fslightbox href="${product.image}"><img src="${product.image}" alt=${product.alt}></a>
-            </div>
-            <div class="image-show swiper-slide">
-                <a data-fslightbox href="${product.image}"><img src="${product.image}" alt=${product.alt}></a>
-            </div> 
-                                         `;
-            const productSmallImage = document.querySelector('.small-image');
-            productSmallImage.innerHTML =  `
-                                            <ul class="small-image-wrapper flexitem swiper-wrapper">
-                                                <li class="thumbnail-show swiper-slide">
-                                                    <img src="${product.image}" alt="${product.alt}">
-                                                </li>
-                                                <li class="thumbnail-show swiper-slide">
-                                                    <img src="${product.image}" alt="${product.alt}">
-                                                </li>
-                                                <li class="thumbnail-show swiper-slide">
-                                                    <img src="${product.image}" alt="${product.alt}">
-                                                </li>
-                                                <li class="thumbnail-show swiper-slide">
-                                                    <img src="${product.image}" alt="${product.alt}">
-                                                </li>
-                                            </ul>
-                                            `;
             const productName = document.getElementById('name');
             productName.innerHTML = `${product.name}`;
 
             const productPrice = document.getElementById('totalPrice');
             productPrice.innerHTML = `<span class="current">XAF${product.price}</span>
                                        <span class="normal">XAF${product.prix}</span>
-                                      `;
-
-            /*const ProductColors = document.getElementById('colors');
-             *ProductColors.innerHTML = ` 
-             *                            `;*/
-
-            const productInfos = document.getElementById('infos');
-            productInfos.innerHTML = `<li><span>${product.infosq1}</span> <span>${product.infosr1}</span></li>
-                                        <li><span>${product.infosq2}</span> <span>${product.infosr2}</span></li>
-                                        <li><span>${product.infosq3}</span> <span>${product.infosr3}</span></li>
-                                        <li><span>${product.infosq4}</span> <span>${product.infosr4}</span></li>
                                       `;
 
             const productDescription = document.getElementById('description');
@@ -172,23 +125,127 @@ fetch(newUrl)
                                             </li>
                                         </ul> 
                                         `;
+            const actions = document.getElementById("actions");
+            actions.innerHTML += `
+                                    <button class="minus circle" onclick="down()">-</button>
+                                    <input type="text" id="quantityProd" name="itemQuantity" class="val" value="1" min="1" max="99999">
+                                    <button class="plus circle" onclick="up()">+</button>`;
 
-            addColors(product);
+            addListProduct(product);
         }
 
-        function addColors(product) {
-            let options = document.getElementById('colors');
-
+        function addListProduct(product) {
+            const productColors = document.getElementById('colors-button');
+            let dataIndex = 0;
+            let dataId = 0;
             for (let colors of product.colors) {
-                options.innerHTML += `<option value="${colors}">${colors}</option>`;
+                productColors.innerHTML += ` <div data-id="${dataId}" data-index="${dataIndex}" class="color">
+                                                <p>
+                                                    <input type="radio" name="colors">
+                                                    <label id="product-colors" style="background-color: ${colors}" class="circle"></label>
+                                                </p>
+                                             </div>
+                                        `;
+                dataIndex++;
+                dataId++;
+            }
+            const productInfos = document.getElementById('infos');
+            for (infos of product.infos) {
+                productInfos.innerHTML += `<li><span>${infos}</span> <span></span></li>
+                                        `;
+            }
+
+            /*for (infosvalue of product.infosvalue) {
+                productInfos.innerHTML += `<li><span>${infos}</span> <span>${infosvalue}</span></li>
+                                        `;
+            }
+            for (i = 0; i < 2; i++) {
+                alert(product.info);
+            }*/
+
+            const productBigImage = document.querySelector('.big-image-wrapper');
+            for (bigImage of product.bigImage) {
+                productBigImage.innerHTML += `
+                                            <div class="image-show swiper-slide">
+                                                <a data-fslightbox href="${bigImage}"><img src="${bigImage}" alt="${product.alt}"></a>
+                                            </div>
+                                            `;
+            }
+            
+            const productSmallImage = document.querySelector('.small-image-wrapper');
+            for (smallImage of product.smallImage) {
+                productSmallImage.innerHTML +=  `
+                                                <li class="thumbnail-show swiper-slide">
+                                                    <img src="${smallImage}" alt="${product.alt}">
+                                                </li>
+                                            `;
             }
         }
 
         let btnAddToCart = document.getElementById('addToCart');
+        let colorButtonList = document.querySelectorAll('.colors .color');
+        colorButtonList.forEach(colorButton => {
+            colorButton.addEventListener("click", (e) => {
+                alert(e.target.style.backgroundColor);
+                colors = e.target.style;
+                //let ind = colorButton.getAttribute("data-index");
+                //let id = colorButton.getAttribute("data-id");
+                //if (ind === id) {
+                    //colorButton.classList.toggle("checked");
+                    //colorButton.style.backgroundColor = colors.backgroundColor;
+                //}
+            })  
+        })
         
         btnAddToCart.addEventListener("click", () => {
-                let colors = document.getElementById("colors");
-                let quantity = document.getElementById("quantity");
+            let quantity = document.getElementById("quantityProd");
+
+            let objectProduct = new Product (
+                newId,
+                product.name,
+                product.description,
+                product.price,
+                product.prix,
+                product.bigImage,
+                product.alt,
+                colors.backgroundColor,
+                quantity.value
+            );
+            alert(colors.backgroundColor);
+            if (colors.backgroundColor === "") {
+                alert("Vous devez selectionner une couleur ❌! 😅");
+            } else if (quantity.value === 0) {
+                alert("Vous devez indiquer une quantité ❌! 😅");
+            } else {
+                let isInCart = false;
+                
+                let indexModification;
+                for (prod of cart) {
+                    if (prod.id === objectProduct.id) {                                                 
+                        if (prod.colors === objectProduct.colors) {
+                            isInCart = true;
+                            indexModification = cart.indexOf(prod);
+                        }
+                    }
+                }
+                if (isInCart) {
+                    cart[indexModification].quantity = +cart[indexModification].quantity + +objectProduct.quantity;
+                    localStorage.setItem("products", JSON.stringify(cart));
+                } else {
+                    cart.push(objectProduct);
+                    localStorage.setItem("products", JSON.stringify(cart));
+                }
+                alert("Votre produit a bien été ajouté au panier ! 👍✔");
+                location.reload();
+            }
+        })
+        
+        // Wishlist 
+        const wishList = document.querySelector('.wishlist');
+
+        wishList.addEventListener("click", () => {
+            if (!wishList.classList.contains('heart')) {
+                let quantity = document.getElementById("quantityProd");
 
                 let objectProduct = new Product (
                     newId,
@@ -196,13 +253,13 @@ fetch(newUrl)
                     product.description,
                     product.price,
                     product.prix,
-                    product.image,
+                    product.bigImage,
                     product.alt,
-                    colors.value,
-                    quantity.value
+                    colors.backgroundColor,
+                    quantity.value,
                 );
 
-                if (colors.value === "") {
+                if (colors.backgroundColor === "") {
                     alert("Vous devez selectionner une couleur ❌! 😅");
                 } else if (quantity.value === 0) {
                     alert("Vous devez indiquer une quantité ❌! 😅");
@@ -210,23 +267,28 @@ fetch(newUrl)
                     let isInCart = false;
 
                     let indexModification;
-                    for (prod of cart) {
+                    for (prod of wishCart) {
                         if (prod.id === objectProduct.id) {                                                 
                             if (prod.colors === objectProduct.colors) {
                                 isInCart = true;
-                                indexModification = cart.indexOf(prod);
+                                indexModification = wishCart.indexOf(prod);
                             }
                         }
                     }
                     if (isInCart) {
-                        cart[indexModification].quantity = +cart[indexModification].quantity + +objectProduct.quantity;
-                        localStorage.setItem("products", JSON.stringify(cart));
+                        wishCart[indexModification].quantity = +wishCart[indexModification].quantity + +objectProduct.quantity;
+                        localStorage.setItem("wishproducts", JSON.stringify(wishCart));
                     } else {
-                        cart.push(objectProduct);
-                        localStorage.setItem("products", JSON.stringify(cart));
+                        wishCart.push(objectProduct);
+                        localStorage.setItem("wishproducts", JSON.stringify(wishCart));
                     }
-                    alert("Votre produit a bien été ajouté au panier ! 👍✔");
-                }
+                    alert("Votre produit a bien été ajouté au panier des souhaits ! 👍✔");
+                    wishList.classList.add('heart');
+                    //location.reload();
+                }             
+            } else {
+                wishList.classList.remove('heart');
+            }
         })
     })
     .catch((error) => {
@@ -234,34 +296,38 @@ fetch(newUrl)
             "attention votre serveur Node n'est pas lancé ! 🙆‍♂️"
         )
     });
+
     
     // Modifier la qauntité des produits
     function down() {
-        n = document.getElementById('quantity');
-        n.value = parseInt(n.value)-1;
-        if (n.value <= 1){
+        n = document.getElementById('quantityProd');
+        n.value = parseInt(n.value) - 1;
+        if (n.value <= 1) {
             n.value = 1;
         }
     }
     function up() {
-        n = document.getElementById('quantity');
-        n.value = parseInt(n.value)+1;
+        n = document.getElementById('quantityProd');
+        n.value = parseInt(n.value) + 1;
     }
 
     // SearchBar Events 
-    const searchBar = document.getElementById('search');
-    searchBar.addEventListener("keyup", (e) => {
-        const searchedLetters = e.target.value;
-        const searchButton = document.getElementById("searchButton");
-        const cardfeat = document.querySelectorAll("#item .item, #items .item");
-        console.log(cardfeat);
-        filterElements(searchedLetters, cardfeat);
-        searchBar.addEventListener("click", () => {
-            location.reload();
+    const searchBarList = document.querySelectorAll('#search');
+    searchBarList.forEach(searchBar => {
+        searchBar.addEventListener("keyup", (e) => {
+            const searchedLetters = e.target.value;
+            const searchButtonList = document.querySelectorAll("#searchButton");
+            const cardfeat = document.querySelectorAll("#item .item, #items .item");
+            console.log(cardfeat);
+            filterElements(searchedLetters, cardfeat);
+            searchBar.addEventListener("click", () => {
+                location.reload();
+            });
+            searchButtonList.forEach(searchButton => {
+                searchButton.addEventListener("click", filterElements(searchedLetters, cardfeat));
+            })
         });
-        searchButton.addEventListener("click", filterElements(searchedLetters, cardfeat));
-    });
-
+    })
 
     function filterElements(letters, elements) {
         if (letters.length > 0) {
@@ -274,3 +340,29 @@ fetch(newUrl)
             }
         }
     }
+
+    // product image slider
+    var productThumb = new Swiper('.small-image', {
+        loop: true,
+        spaceBetween: 10,
+        slidesPerView: 3,
+        freeMode: true,
+        watchSlidesProgress: true,
+        breakpoints: {
+            481: {
+                spaceBetween: 32,
+            }
+        }
+    });
+    var productBig = new Swiper ('.big-image-wrapper', {
+        loop: true,
+        autoHeight: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        thumbs: {
+            swiper: productThumb,
+        }
+    })
+

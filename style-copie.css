@@ -177,7 +177,7 @@ h4 {
 }
 
 .mobile-hide {
-    display: none
+    display: none;
 }
 
 .object-cover img {
@@ -241,6 +241,10 @@ h4 {
 .mini-text {
     font-size: var(--font-smaller);
     color: var(--light-text-color);
+}
+
+.mini-text:hover {
+    color: var(--dark-color);
 }
 
 
@@ -1314,7 +1318,7 @@ form.search button:hover {
         will-change: visibility, opacity;
     }
 
-    .showsearch .search-bottom {
+    .showsearch {
         visibility: inherit;
         opacity: 1;
     }
@@ -1534,6 +1538,26 @@ form.search button:hover {
         font-size: 2.5em;
     }
 
+    .products .colors-title {
+        font-size: 2em;
+        font-weight: var(--fw7);
+    }
+
+    .products .colors {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0.5em;
+    }
+
+    .products .color p {
+        position: relative;
+        margin: 0 0.5em 0.5em;
+    }
+
+    .products .color.checked p {
+        background-color: black;
+    }
+
     .products .variant form {
         display: flex;
         margin-top: 0.5em;
@@ -1544,7 +1568,7 @@ form.search button:hover {
         margin: 0 0.5em 0.5em;
     }
 
-    .products :where(.variant, .actions) .circle {
+    .products :where(.color, .variant, .actions) .circle {
         display: block;
         position: static;
         top: 0;
@@ -1553,7 +1577,7 @@ form.search button:hover {
         z-index: 1;
     }
 
-    :where(.products .variant, .filter-block:not(.pricing)) input {
+    :where(.products .variant, .products .color, .filter-block:not(.pricing)) input {
         clip: rect(0,0,0,0);
         overflow: hidden;
         position: absolute;
@@ -1561,71 +1585,15 @@ form.search button:hover {
         width: 0;
     }
 
-    .products .colors .variant label::before {
+    .products .colors label::before {
         opacity: 1;
-    }
-
-    .products .variant label[for="grey"]::before {
-        background-color: #576574;
-    }
-
-    .products .variant label[for="blue"]::before {
-        background-color: #45a0ff;
-    }
-
-    .products .variant label[for="green"]::before {
-        background-color: #1dd1a1;
-    }
-
-    .products .variant label[for="red"]::before {
-        background-color: #852215;
-    }
-
-    .products .variant label[for="black"]::before {
-        background-color: #010913;
-    }
-
-    .products .variant label[for="pink"]::before {
-        background-color: #da149e;
-    }
-
-    .products .variant label[for="white"]::before {
-        background-color: #fff;
-    }
-
-    .products .variant label[for="yellow"]::before {
-        background-color: #f7fa34;
-    }
-
-    .products .variant label[for="maroon"]::before {
-        background-color: #800000;
+        background-color: #0e0d0d00;
     }
 
     .single-product .variant form p input:checked + label {
         background-color: transparent;
         border: 2px solid var(--dark-color);
         color: var(--white-color);
-    }
-    
-    .products .sizes .variant label::before {
-        background-color: var(--white-color);
-    }
-
-    .products .sizes .variant label span {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: var(--percent100);
-        height: var(--percent100);
-        font-size: 0.85em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .single-product .sizes .variant form p input:checked + label::before {
-        background-color: var(--dark-color);
-        opacity: 1;
     }
 
     .products .actions {
@@ -1675,9 +1643,13 @@ form.search button:hover {
         transition: var(--trans-color);
     }
 
+    .wish-share .wishlist.heart {
+        color: var(--primary-color);
+    }
+
     #items {
         overflow-x: auto;
-    }  
+    }
 
     #items .media,
     #items .content {
@@ -2193,6 +2165,51 @@ form.search button:hover {
     line-height: 1.2;
 }
 
+.mini-cart .products.mini .item {
+    grid-template-columns: 0.4fr 1fr 0.6fr 0.6fr;
+    row-gap: 35px;
+    margin-bottom: 2em;
+}
+.mini-cart .button-container {
+    display: flex;
+    align-items: center;
+}
+
+.mini-cart .button-container .form-control {
+    max-width: 30px;
+    text-align: center;
+    display: inline-block;
+    margin: 0px 5px;
+}
+
+.mini-cart .form-control {
+    width: auto;
+    display: inline-block;
+}
+
+.mini-cart .cart-qty-plus {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #ced4da;
+    border-radius: 100%;
+    background-color: rgb(86, 241, 86);
+}
+
+.mini-cart .cart-qty-minus {
+    width: 28px;
+    height: 28px;
+    border: 1px solid #ced4da;
+    border-radius: 100%;
+    background-color: rgb(245, 130, 130);
+}
+
+.mini-cart .cart-qty-plus:hover,
+.mini-cart .cart-qty-minus:hover {
+    background-color: rgb(105, 5, 163);
+    color: black;
+}
+
+
 .mini-cart .item-remove {
     margin-left: 1em;
     flex: 1;
@@ -2576,7 +2593,7 @@ form.search button:hover {
 .checkout h2 {
     padding-top: 0.5em;
     margin-bottom: 0.75em;
-    border-top: 1px solid var(--border-color);
+    border-top: 2px solid var(--border-color);
 }
 
 .primary-checkout button {
@@ -2595,11 +2612,11 @@ form.search button:hover {
 }
 
 .summary-totals ul {
-    max-width: 335px;
+    max-width: 450px;
     line-height: 2;
     margin-bottom: 3em;
     padding-bottom: 2em;
-    border-bottom: 1px solid var(--secondary-dark-color);
+    border-bottom: 2px solid var(--secondary-dark-color);
 }
 
 .summary-totals li {
@@ -2617,8 +2634,8 @@ form.search button:hover {
     margin-top: 2em;
 }
 
-.summary-totals li:not(:last-child) span:first-child {
-    color: var(--light-text-color);
+.summary-totals li span{
+    font-weight: var(--fw7);
 }
 
 .summary-order {
@@ -2792,6 +2809,13 @@ form.search button:hover {
 
     .mini-cart {
         width: 370px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+
+    .header-nav .right {
+        margin-left: -40px;
     }
 }
 
