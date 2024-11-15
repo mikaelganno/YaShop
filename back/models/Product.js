@@ -5,27 +5,35 @@ const products = [
         "price": 175000,
         "prix": 200000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/home5.jpg",
-                    "http://localhost:3000/home5.jpg",
-                    "http://localhost:3000/home5.jpg",
-                    "http://localhost:3000/home5.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/home5.jpg",
+        "images": ["http://localhost:3000/home5.jpg",
                     "http://localhost:3000/home5.jpg",
                     "http://localhost:3000/home5.jpg",
                     "http://localhost:3000/home5.jpg"
                 ],
         "alt": "alt1",
         "description": "0Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
-        "colors": ["pink", "white", "custom"],
-        "infos": ["Places", "Height", "Width", "Material"],
-        "infosvalue": ["4", "500cm", "50cm", "Chene"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "colors": ["pink", 
+                    "white", 
+                    "custom"
+                ],
+        "infos": {"Places":"4", 
+                    "Height":"500cm", 
+                    "Width":"50cm", 
+                    "Material":"Chene"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
         "_id": 2,
@@ -33,27 +41,35 @@ const products = [
         "price": 43000,
         "prix": 51000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/home2.jpg",
-                    "http://localhost:3000/home2.jpg",
-                    "http://localhost:3000/home2.jpg",
-                    "http://localhost:3000/home2.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/home2.jpg",
+        "images": ["http://localhost:3000/home2.jpg",
                     "http://localhost:3000/home2.jpg",
                     "http://localhost:3000/home2.jpg",
                     "http://localhost:3000/home2.jpg"
                 ],
         "alt": "alt2",
         "description": "1Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
-        "colors": ["red", "dark blue", "black"],
-        "infos": ["Brand", "Activity", "Material", "Gender"],
-        "infosvalue": ["Kappa", "Running", "Fleece", "women"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "colors": ["red", 
+                    "dark blue", 
+                    "black"
+                ],
+        "infos": {"Brand":"Kappa", 
+                    "Activity":"Running", 
+                    "Material":"Fleece", 
+                    "Gender":"Women"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
         "_id": 3,
@@ -61,27 +77,35 @@ const products = [
         "price": 65000,
         "prix": 77000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/home1.jpg",
-                    "http://localhost:3000/home1.jpg",
-                    "http://localhost:3000/home1.jpg",
-                    "http://localhost:3000/home1.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/home1.jpg",
+        "images": ["http://localhost:3000/home1.jpg",
                     "http://localhost:3000/home1.jpg",
                     "http://localhost:3000/home1.jpg",
                     "http://localhost:3000/home1.jpg"
                 ],
         "alt": "alt3",
         "description": "2Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
-        "colors": ["grey", "blue", "white"],
-        "infos": ["Brand", "Activity", "Material", "Gender"],
-        "infosvalue": ["Kappa", "Running", "Fleece", "women"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "colors": ["grey", 
+                    "blue", 
+                    "white"
+                ],
+        "infos": {"Brand":"Kappa", 
+                    "Activity":"Running", 
+                    "Material":"Fleece", 
+                    "Gender":"Women"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
         "_id": 4,
@@ -89,27 +113,35 @@ const products = [
         "price": 300000,
         "prix": 370000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/home3.jpg",
-                    "http://localhost:3000/home3.jpg",
-                    "http://localhost:3000/home3.jpg",
-                    "http://localhost:3000/home3.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/home3.jpg",
+        "images": ["http://localhost:3000/home3.jpg",
                     "http://localhost:3000/home3.jpg",
                     "http://localhost:3000/home3.jpg",
                     "http://localhost:3000/home3.jpg"
                 ],
         "alt": "alt4",
         "description": "3Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
-        "colors": ["white", "maroon", "black"],
-        "infos": ["Brand", "Activity", "Material", "Gender"],
-        "infosvalue": ["Kappa", "Running", "Fleece", "women"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "colors": ["white", 
+                    "maroon", 
+                    "black"
+                ],
+        "infos": {"Brand":"Kappa", 
+                    "Activity":"Running", 
+                    "Material":"Fleece", 
+                    "Gender":"Women"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },    
     {
         "_id": 5,
@@ -117,27 +149,38 @@ const products = [
         "price": 22000,
         "prix": 26000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/home4.jpg",
-                    "http://localhost:3000/home4.jpg",
-                    "http://localhost:3000/home4.jpg",
-                    "http://localhost:3000/home4.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/home4.jpg",
+        "images": ["http://localhost:3000/home4.jpg",
                     "http://localhost:3000/home4.jpg",
                     "http://localhost:3000/home4.jpg",
                     "http://localhost:3000/home4.jpg"
                 ],
         "alt": "alt5",
         "description": "4Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
-        "colors": ["green", "white", "black", "red", "blue", "yellow", "orange"],
-        "infos": ["Brand", "Display", "Resolution", ""],
-        "infosvalue": ["Samsung", "52'", "800x1200px", ""],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "colors": ["green", 
+                    "white", 
+                    "black", 
+                    "red", 
+                    "blue", 
+                    "yellow", 
+                    "orange"
+                ],
+        "infos": {"Brand":"Samsung", 
+                    "Display":"52'", 
+                    "Resolution":"800x1200px", 
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
         "_id": 6,
@@ -145,27 +188,39 @@ const products = [
         "price": 19000,
         "prix": 23000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/shoe1-1.jpg",
-                    "http://localhost:3000/shoe1-1.jpg",
-                    "http://localhost:3000/shoe1-1.jpg",
-                    "http://localhost:3000/shoe1-1.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/shoe1-1.jpg",
+        "images": ["http://localhost:3000/shoe1-1.jpg",
                     "http://localhost:3000/shoe1-1.jpg",
                     "http://localhost:3000/shoe1-1.jpg",
                     "http://localhost:3000/shoe1-1.jpg"
                 ],
         "alt": "alt6",
         "description": "5Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
-        "colors": ["green", "white", "black", "red", "blue", "yellow", "orange"],
-        "infos": ["Brand", "Activity", "Material", "Model name"],
-        "infosvalue": ["Kappa", "Running", "Fleece", "Superres"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "colors": ["green", 
+                    "white", 
+                    "black", 
+                    "red", 
+                    "blue", 
+                    "yellow", 
+                    "orange"
+                ],
+        "infos": {"Brand":"Kappa", 
+                    "Activity":"Running", 
+                    "Material":"Fleece", 
+                    "Model Name":"Superres"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
         "_id": 7,
@@ -173,27 +228,35 @@ const products = [
         "price": 22500,
         "prix": 27000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/shoe5.jpg",
-                    "http://localhost:3000/shoe5.jpg",
-                    "http://localhost:3000/shoe5.jpg",
-                    "http://localhost:3000/shoe5.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/shoe5.jpg",
+        "images": ["http://localhost:3000/shoe5.jpg",
                     "http://localhost:3000/shoe5.jpg",
                     "http://localhost:3000/shoe5.jpg",
                     "http://localhost:3000/shoe5.jpg"
                 ],
         "alt": "alt7",
         "description": "6Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
-        "colors": ["blue", "black", "custom"],
-        "infos": ["Brand", "Edition", "Material", "Gender"],
-        "infosvalue": ["Nike", "2k21", "Fleece", "All"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "colors": ["blue", 
+                    "black", 
+                    "custom"
+                ],
+        "infos": {"Brand":"Nike", 
+                    "Edition":"2k21", 
+                    "Material":"Fleece", 
+                    "Gender":"All"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
         "_id": 8,
@@ -201,27 +264,35 @@ const products = [
         "price": 25000,
         "prix": 29000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/shoe3.jpg",
-                    "http://localhost:3000/shoe3.jpg",
-                    "http://localhost:3000/shoe3.jpg",
-                    "http://localhost:3000/shoe3.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/shoe3.jpg",
+        "images": ["http://localhost:3000/shoe3.jpg",
                     "http://localhost:3000/shoe3.jpg",
                     "http://localhost:3000/shoe3.jpg",
                     "http://localhost:3000/shoe3.jpg"
                 ],
         "alt": "alt8", 
         "description": "7Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
-        "colors": ["white", "pink", "custom"],
-        "infos": ["Brand", "Edition", "Material", "Gender"],
-        "infosvalue": ["Nike", "2k23", "Fleece", "Girl"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "colors": ["white", 
+                    "pink", 
+                    "custom"
+                ],
+        "infos": {"Brand":"Nike", 
+                    "Edition":"2k23", 
+                    "Material":"Fleece", 
+                    "Gender":"Girl"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
         "_id": 9,
@@ -229,27 +300,35 @@ const products = [
         "price": 22000,
         "prix": 26500,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/shoe2.jpg",
-                    "http://localhost:3000/shoe2.jpg",
-                    "http://localhost:3000/shoe2.jpg",
-                    "http://localhost:3000/shoe2.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/shoe2.jpg",
+        "images": ["http://localhost:3000/shoe2.jpg",
                     "http://localhost:3000/shoe2.jpg",
                     "http://localhost:3000/shoe2.jpg",
                     "http://localhost:3000/shoe2.jpg"
                 ],
         "alt": "alt9",
         "description": "8Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
-        "colors": ["pink", "yellow", "white"],
-        "infos": ["Brand", "Activity", "Material", "Gender"],
-        "infosvalue": ["Kappa", "Running", "Fleece", "Women"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "colors": ["pink", 
+                    "yellow", 
+                    "white"
+                ],
+        "infos": {"Brand":"Kappa", 
+                    "Activity":"Running", 
+                    "Material":"Fleece", 
+                    "Gender":"Women"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
         "_id": 10,
@@ -257,12 +336,7 @@ const products = [
         "price": 18000,
         "prix": 20500,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/shoe4.jpg", 
-                    "http://localhost:3000/shoe4.jpg",
-                    "http://localhost:3000/shoe4.jpg", 
-                    "http://localhost:3000/shoe4.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/shoe4.jpg", 
+        "images": ["http://localhost:3000/shoe4.jpg", 
                     "http://localhost:3000/shoe4.jpg",
                     "http://localhost:3000/shoe4.jpg", 
                     "http://localhost:3000/shoe4.jpg"
@@ -273,14 +347,24 @@ const products = [
                     "maroon", 
                     "black"
                 ],
-        "infos": ["Brand", "Activity", "Material", "Gender"],
-        "infosvalue": ["Kappa", "Running", "Fleece", "Women"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "infos": {"Brand":"Kappa", 
+                    "Activity":"Running", 
+                    "Material":"Fleece", 
+                    "Gender":"Women"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
         "_id": 11,
@@ -288,27 +372,35 @@ const products = [
         "price": 130000,
         "prix": 150000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/electronic1.jpg",
-                    "http://localhost:3000/electronic1.jpg",
-                    "http://localhost:3000/electronic1.jpg",
-                    "http://localhost:3000/electronic1.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/electronic1.jpg",
+        "images": ["http://localhost:3000/electronic1.jpg",
                     "http://localhost:3000/electronic1.jpg",
                     "http://localhost:3000/electronic1.jpg",
                     "http://localhost:3000/electronic1.jpg"
                 ],
         "alt": "alt11",
         "description": "10Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
-        "colors": ["white", "black", "dark-blue"],
-        "infos": ["Processeur", "RAM", "ROM", "Display"],
-        "infosvalue": ["Intel Core i5-7200 CPU 2.50GHz 2.70GHz", "8.00GB", "1To", "22'"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "colors": ["white", 
+                    "black", 
+                    "dark-blue"
+                ],
+        "infos": {"Processeur":"Intel Core i5-7200 CPU 2.50GHz 2.70GHz", 
+                    "RAM":"8.00GB", 
+                    "ROM":"1To", 
+                    "Display":"22'"
+                },        
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
         "_id": 12,
@@ -316,12 +408,7 @@ const products = [
         "price": 8000,
         "prix": 9000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/electronic3.jpg",
-                    "http://localhost:3000/electronic3.jpg",
-                    "http://localhost:3000/electronic3.jpg",
-                    "http://localhost:3000/electronic3.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/electronic3.jpg",
+        "images": ["http://localhost:3000/electronic3.jpg",
                     "http://localhost:3000/electronic3.jpg",
                     "http://localhost:3000/electronic3.jpg",
                     "http://localhost:3000/electronic3.jpg"
@@ -332,27 +419,32 @@ const products = [
                     "black",
                     "red"
                 ],
-        "infos": ["Signal", "Consumption", "CarrierLock", "Brand"],
-        "infosvalue": ["Stable signal", "Low power consumption", "High endurance", "Lenovo"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "infos": {"Signal":"Stable signal", 
+                    "Consumption":"Low power consumption", 
+                    "Battery":"High endurance", 
+                    "Brand":"Lenovo"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },  
     {
         "_id": 13,
-        "name": "silicon case apple iphone 11",
+        "name": "silicone case apple iphone 11",
         "price": 15000,
         "prix": 17500,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/iphone11-silicone-case.png", 
-                    "http://localhost:3000/iphone11-silicone-case.png",
-                    "http://localhost:3000/iphone11-silicone-case.png",
-                    "http://localhost:3000/iphone11-silicone-case.png"
-                ],
-        "smallImage": ["http://localhost:3000/iphone11-silicone-case.png", 
+        "images": ["http://localhost:3000/iphone11-silicone-case.png", 
                     "http://localhost:3000/iphone11-silicone-case.png",
                     "http://localhost:3000/iphone11-silicone-case.png",
                     "http://localhost:3000/iphone11-silicone-case.png"
@@ -368,27 +460,29 @@ const products = [
                     "yellow",
                     "purple"
                 ],
-        "infos": ["Material"],
-        "infosvalue": ["Silicone souple"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "infos": {"Material":"Silicone souple",
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
         "_id": 14,
         "name": "apple iphone 11",
         "price": 115000,
-        "prix": 138000,
+        "prix": 127000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/iphone11.png", 
-                    "http://localhost:3000/iphone11.png",
-                    "http://localhost:3000/iphone11.png",
-                    "http://localhost:3000/iphone11.png"
-                ],
-        "smallImage": ["http://localhost:3000/iphone11.png", 
+        "images": ["http://localhost:3000/iphone11.png", 
                     "http://localhost:3000/iphone11.png",
                     "http://localhost:3000/iphone11.png",
                     "http://localhost:3000/iphone11.png"
@@ -400,233 +494,406 @@ const products = [
                     "black",
                     "white",
                     "green",
-                    "mediumpurple",
+                    "mediumpurple"
                 ],
-        "infos": ["Capacity", "Display", "RAM", "CarrierLock", "Battery"],
-        "infosvalue": ["64GB", "6.1'", "4Go", "SIM Locked", "3110 mAh"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "infos": {"Capacity":"64GB",  
+                    "RAM":"4 Go", 
+                    "Battery":"3110 mAh", 
+                    "Display":"6.1'",
+                    "Carrier Lock":"No SIM restrictions"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
         "_id": 15,
-        "name": "apple iphone 13",
-        "price": 215000,
-        "prix": 248000,
+        "name": "apple iphone 12",
+        "price": 145000,
+        "prix": 155000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/iphone13.jpg", 
-                    "http://localhost:3000/iphone13.jpg",
-                    "http://localhost:3000/iphone13.jpg",
-                    "http://localhost:3000/iphone13.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/iphone13.jpg", 
-                    "http://localhost:3000/iphone13.jpg",
-                    "http://localhost:3000/iphone13.jpg",
-                    "http://localhost:3000/iphone13.jpg"
+        "images": ["http://localhost:3000/iphone12.png", 
+                    "http://localhost:3000/iphone12.png",
+                    "http://localhost:3000/iphone12.png",
+                    "http://localhost:3000/iphone12.png"
                 ],
         "alt": "alt15",
         "description": "14Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
-        "colors": ["pink",
+        "colors": ["blue",
                     "red",
-                    "darkblue",
-                    "whitesmoke"
+                    "black",
+                    "white",
+                    "green",
+                    "mediumpurple"
                 ],
-        "infos": ["Capacity", "Display", "RAM", "Battery"],
-        "infosvalue": ["512GB", "6.1'", "4Go", "100%"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "infos": {"Capacity":"128GB", 
+                    "Processeur":"A14 Bionic", 
+                    "Battery":"100%",  
+                    "Display":"6.1'",
+                    "Carrier Lock":"No SIM restrictions"
+        },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
         "_id": 16,
-        "name": "apple iphone 14 promax",
-        "price": 420000,
-        "prix": 499000,
+        "name": "apple iphone 12 Pro",
+        "price": 160000,
+        "prix": 175000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/iphone14ProMax.jpg", 
-                    "http://localhost:3000/iphone14ProMax.jpg",
-                    "http://localhost:3000/iphone14ProMax.jpg",
-                    "http://localhost:3000/iphone14ProMax.jpg"
-                ],
-        "smallImage": ["http://localhost:3000/iphone14ProMax.jpg", 
-                    "http://localhost:3000/iphone14ProMax.jpg",
-                    "http://localhost:3000/iphone14ProMax.jpg",
-                    "http://localhost:3000/iphone14ProMax.jpg"
+        "images": ["http://localhost:3000/iphone12Pro.jpg", 
+                    "http://localhost:3000/iphone12Pro.jpg",
+                    "http://localhost:3000/iphone12Pro.jpg",
+                    "http://localhost:3000/iphone12Pro.jpg"
                 ],
         "alt": "alt16",
         "description": "15Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
+        "colors": ["gold",
+                    "silver",
+                    "mediumblue",
+                    "gainsboro"
+                ],
+        "infos": {"Capacity":"256GB", 
+                    "Battery":"100%", 
+                    "Display":"6.1'",
+                    "chassis":"Acier inoxydable",
+                    "Carrier Lock":"No SIM restrictions"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
+    },
+    {
+        "_id": 17,
+        "name": "apple iphone 13",
+        "price": 215000,
+        "prix": 228000,
+        "quantity": 1,
+        "images": ["http://localhost:3000/iphone13.jpg", 
+                    "http://localhost:3000/iphone13.jpg",
+                    "http://localhost:3000/iphone13.jpg",
+                    "http://localhost:3000/iphone13.jpg"
+                ],
+        "alt": "alt17",
+        "description": "16Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
+        "colors": ["pink",
+                    "red",
+                    "midnightblue",
+                    "whitesmoke"
+                ],
+        "infos": {"Capacity":"512GB", 
+                    "RAM":"4 Go", 
+                    "Battery":"100%",  
+                    "Display":"6.1'"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
+    },
+    {
+        "_id": 18,
+        "name": "apple iphone 14 promax",
+        "price": 420000,
+        "prix": 455000,
+        "quantity": 1,
+        "images": ["http://localhost:3000/iphone14ProMax.jpg", 
+                    "http://localhost:3000/iphone14ProMax.jpg",
+                    "http://localhost:3000/iphone14ProMax.jpg",
+                    "http://localhost:3000/iphone14ProMax.jpg"
+                ],
+        "alt": "alt18",
+        "description": "17Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
         "colors": ["midnightblue",
                     "black",
                     "#eec78c",
                     "whitesmoke"
                 ],
-        "info" : [alt="alt16",alt1="alt17"],
-        "infos": ["Capacity", "Material", "RAM", "Battery", "Port", "Display"],
-        "infosvalue": ["1To", "Titanium", "8 Go", "100%", "USB-C", "6.7'"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "infos": {"Capacity":"1To", 
+                    "Material":"Titanium", 
+                    "RAM":"8 Go", 
+                    "Battery":"100%", 
+                    "Port":"USB-C", 
+                    "Display":"6.1'"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
-        "_id": 17,
+        "_id": 19,
+        "name": "silicone case apple iphone 15 plus",
+        "price": 20000,
+        "prix": 23000,
+        "quantity": 1,
+        "images": ["http://localhost:3000/iphone15Plus-silicone-case-b.jpg", 
+                    "http://localhost:3000/iphone15Plus-silicone-case-db.png",
+                    "http://localhost:3000/iphone15Plus-silicone-case-r.jpg",
+                    "http://localhost:3000/iphone15Plus-silicone-case-k.jpg",
+                    "http://localhost:3000/iphone15Plus-silicone-case-g.png", 
+                    "http://localhost:3000/iphone15Plus-silicone-case-lb.jpg",
+                    "http://localhost:3000/iphone15Plus-silicone-case-m.jpg",
+                    "http://localhost:3000/iphone15Plus-silicone-case-o.jpg",
+                    "http://localhost:3000/iphone15Plus-silicone-case-p.jpg", 
+                    "http://localhost:3000/iphone15Plus-silicone-case-es1.jpg",
+                    "http://localhost:3000/iphone15Plus-silicone-case-es2.jpg"
+                ],
+        "alt": "alt18",
+        "description": "17Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
+        "colors": ["lightblue",
+                    "darkblue",
+                    "red",
+                    "khaki",
+                    "grey",
+                    "azure",
+                    "maroon",
+                    "orange",
+                    "pink",
+                    "mediumblue"
+                ],
+        "infos": {"Material":"Silicone souple"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
+    },
+    {
+        "_id": 20,
         "name": "google pixel 7 pro",
         "price": 160000,
         "prix": 182000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/googlePixel.jpg", 
+        "images": ["http://localhost:3000/googlePixel.jpg", 
                     "http://localhost:3000/googlePixel.jpg",
                     "http://localhost:3000/googlePixel.jpg",
                     "http://localhost:3000/googlePixel.jpg"
                 ],
-        "smallImage": ["http://localhost:3000/googlePixel.jpg", 
-                    "http://localhost:3000/googlePixel.jpg",
-                    "http://localhost:3000/googlePixel.jpg",
-                    "http://localhost:3000/googlePixel.jpg"
-                ],
-        "alt": "alt17",
-        "description": "16Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
-        "colors": [ "snow",
-                    "tan",
-                    "black",
-                ],
-        "infos": ["Battery", "Display", "Capacity", "Port"],
-        "infosvalue": ["5000 mAh", "6.7'", "256GB", "USB-C 3.1"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "alt": "alt20",
+        "description": "19Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
+        "colors": { 1:"snow",
+                    2:"tan",
+                    3:"black"
+                },
+        "infos": {"Battery":"5000mAh", 
+                    "Capacity":"256GB", 
+                    "Port":"USB-C 3.1", 
+                    "Display":"6.7'"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
-        "_id": 18,
+        "_id": 21,
         "name": "one plus 12",
         "price": 191000,
         "prix": 213000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/onePlus.jpg", 
+        "images": ["http://localhost:3000/onePlus.jpg", 
                     "http://localhost:3000/onePlus.jpg",
                     "http://localhost:3000/onePlus.jpg",
                     "http://localhost:3000/onePlus.jpg"
                 ],
-        "smallImage": ["http://localhost:3000/onePlus.jpg", 
-                    "http://localhost:3000/onePlus.jpg",
-                    "http://localhost:3000/onePlus.jpg",
-                    "http://localhost:3000/onePlus.jpg"
-                ],
-        "alt": "alt18",
-        "description": "17Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
+        "alt": "alt21",
+        "description": "20Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
         "colors": ["black",
                     "darkblue",
                     "white",
                     "green"
                 ],
-        "infos": ["Capacity", "RAM", "Display", "Battery"],
-        "infosvalue": ["256GB", "12Go", "6.7'", "5400 mAh"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "infos": {"Battery":"5400mAh", 
+                    "Capacity":"256GB", 
+                    "RAM":"12 Go", 
+                    "Display":"6.7'"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
-        "_id": 19,
+        "_id": 22,
         "name": "samsung galaxy s21 ultra",
         "price": 188000,
         "prix": 217000,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/samsungGalaxy.jpg", 
+        "images": ["http://localhost:3000/samsungGalaxy.jpg", 
                     "http://localhost:3000/samsungGalaxy.jpg",
                     "http://localhost:3000/samsungGalaxy.jpg",
                     "http://localhost:3000/samsungGalaxy.jpg"
                 ],
-        "smallImage": ["http://localhost:3000/samsungGalaxy.jpg", 
-                    "http://localhost:3000/samsungGalaxy.jpg",
-                    "http://localhost:3000/samsungGalaxy.jpg",
-                    "http://localhost:3000/samsungGalaxy.jpg"
-                ],
-        "alt": "alt19",
-        "description": "18Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
+        "alt": "alt22",
+        "description": "21Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
         "colors": ["navy",
                     "brown",
                     "black",
-                    "silver",
+                    "silver"
                 ],
-        "infos": ["Capacity", "RAM", "Display", "Battery"],
-        "infosvalue": ["128GB", "16Go", "6.8'", "5000 mAh"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "infos": {"Battery":"5000mAh", 
+                    "Capacity":"128GB", 
+                    "RAM":"16 Go", 
+                    "Display":"6.8'"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
-        "_id": 20,
+        "_id": 23,
         "name": "samsung curved monitor",
         "price": 200000,
         "prix": 231500,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/electronic5.jpg",
+        "images": ["http://localhost:3000/electronic5.jpg",
                     "http://localhost:3000/electronic5.jpg",
                     "http://localhost:3000/electronic5.jpg",
                     "http://localhost:3000/electronic5.jpg"
                 ],
-        "smallImage": ["http://localhost:3000/electronic5.jpg",
-                    "http://localhost:3000/electronic5.jpg",
-                    "http://localhost:3000/electronic5.jpg",
-                    "http://localhost:3000/electronic5.jpg"
-                ],
-        "alt": "alt20",
-        "description": "19Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
+        "alt": "alt23",
+        "description": "22Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
         "colors": ["black"],
-        "infos": ["Brand", "Display", "Resolution", ""],
-        "infosvalue": ["Samsung", "52'", "800x1200px", ""],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+        "infos": {"Brand":"Samsung",
+                    "Display":"52'", 
+                    "Resolution":"800x1200px"
+        },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
     },
     {
-        "_id": 21,
+        "_id": 24,
         "name": "USB Lightning",
         "price": 3000,
         "prix": 3400,
         "quantity": 1,
-        "bigImage": ["http://localhost:3000/electronic4.jpg",
+        "images": ["http://localhost:3000/electronic4.jpg",
                     "http://localhost:3000/electronic4.jpg",
                     "http://localhost:3000/electronic4.jpg",
                     "http://localhost:3000/electronic4.jpg"
                 ],
-        "smallImage": ["http://localhost:3000/electronic4.jpg",
-                    "http://localhost:3000/electronic4.jpg",
-                    "http://localhost:3000/electronic4.jpg",
-                    "http://localhost:3000/electronic4.jpg"
+        "alt": "alt24",
+        "description": "23Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
+        "colors": ["black", 
+                    "white"
                 ],
-        "alt": "alt21",
-        "description": "20Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere natus cum ex rerum possimus libero ipsum soluta a aspernatur delectus qui eos, tempore sapiente incidunt sint ea maiores repellendus esse!",
-        "colors": ["black", "white"],
-        "infos": ["Brand", "Height", "Port", "width"],
-        "infosvalue": ["Fonken", "20cm", "USB-C 3.1", "4cm"],
-        "reviewn1": "Sarah",
-        "reviewn2": "Faizal",
-        "reviewd1": "7/3/24",
-        "reviewd2": "1/3/24",
-        "reviewt1": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
-        "reviewt2": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
-    },
+        "infos": {"Brand":"Fonken", 
+                    "Height":"20cm", 
+                    "Port":"USB-C 3.1", 
+                    "Width":"4cm"
+                },
+        "reviewname": ["Sarah",
+                        "Faizel"
+                    ],
+        "reviewdate": ["7/3/24",
+                    "10/3/24"
+                    ],
+        "reviewtitle":["Awesome product",
+                        "Awesome product"
+                    ],
+        "reviewtext":["Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.",
+                        "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventora."
+                    ],
+        "inwishlist": false,
+    }
 ]; 
 
 exports.find = () => {

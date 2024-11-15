@@ -79,7 +79,7 @@ function displayMiniCart(product) {
                             <td>
                                 <div class="product-img">
                                     <div class="img-prdct">
-                                        <img src="${product.bigImage[0]}" alt="${product.alt}">
+                                        <img src="${product.images[0]}" alt="${product.alt}">
                                     </div>
                                 </div>
                             </td>

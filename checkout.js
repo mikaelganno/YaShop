@@ -17,7 +17,7 @@ function displayCart(product) {
     productList.innerHTML += `
                                 <li class="items data-id="${product.id}">
                                     <div class="thumbnail object-cover">
-                                        <img src="${product.bigImage[0]}" alt="${product.alt}">
+                                        <img src="${product.images[0]}" alt="${product.alt}">
                                     </div>
                                     <div class="item-content">
                                         <p>${product.name}</p>  

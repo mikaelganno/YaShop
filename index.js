@@ -5,30 +5,30 @@ fetch(url)
     .then(response => response.json())
     .then((data) => {
         
-        addCards(data)
+        addCards(data);
     })
     .catch((error) => {
         alert("Votre serveur Node n'est pas lancé ! 🙆‍♂️")
     });
 
     // fonction pour afficher des produits en page d'accueill
-    function addCards(data){
+    function addCards(data) {
         for (product of data){
             const trendItem = document.getElementById('items');
-            const featItem = document.getElementById('item');
+            const featItem = document.getElementById('item');            
 
             trendItem.innerHTML += `
                     <div class="item">
                         <div class="media">
                             <div class="thumbnail object-cover">
                             <a href="./page-single-copie.html?_id=${product._id}">
-                                    <img src="${product.bigImage[0]}" alt="">
+                                    <img src="${product.images[0]}" alt="${product.alt}">
                             </a>   
                             </div>
                             <div class="hoverable">
                                 <ul>
                                     <li class="active"><a href="./page-single-copie.html?_id=${product._id}"><i class="ri-heart-line"></i></a></li>
-                                    <li><a href="${product.bigImage[0]}"><i class="ri-eye-line"></i></a></li>
+                                    <li><a href="${product.images[0]}"><i class="ri-eye-line"></i></a></li>
                                     <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                 </ul>
                             </div>
@@ -54,13 +54,13 @@ fetch(url)
                                     <div class="media">
                                         <div class="thumbnail object-cover">
                                         <a href="./page-single-copie.html?_id=${product._id}">
-                                                <img src="${product.bigImage[0]}" alt="${product.alt}">
+                                                <img src="${product.images[0]}" alt="${product.alt}">
                                         </a>
                                         </div>
                                         <div class="hoverable">
                                             <ul>
                                                 <li class="active"><a href="./page-single-copie.html?_id=${product._id}"><i class="ri-heart-line"></i></a></li>
-                                                <li><a href="${product.bigImage[0]}"><i class="ri-eye-line"></i></a></li>
+                                                <li><a href="${product.images[0]}"><i class="ri-eye-line"></i></a></li>
                                                 <li><a href=""><i class="ri-shuffle-line"></i></a></li>
                                             </ul>
                                         </div>
@@ -78,17 +78,29 @@ fetch(url)
                                         
                                         <div class="footer">
                                             <ul class="mini-text">
-                                                <li>${product.infosvalue[0]}</li>
-                                                <li>${product.infosvalue[1]}</li>
-                                                <li>${product.infosvalue[2]}</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                            
                                 `;
+                                
+        
+            
+                                addInfos();
         }
+        
     }
+    function addInfos() {
+        const addinfos = document.querySelectorAll('.footer .mini-text');
+        addinfos.forEach(addinfo => {
+            for (let infos in product.infos) {
+                addinfo.innerHTML += `<li>${infos + ": " + product.infos[infos]}</li>
+                                        `;
+            }         
+        })
+        
+    }
+    
 
 
 // SearchBar Events 

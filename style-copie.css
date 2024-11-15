@@ -16,6 +16,8 @@ Fonts:
     --light-text-color: #7c899a;
     --border-color: #e5e8ec;
     --dark-color: #0a021c;
+
+    --checked-color: #31166e;
     
     --font-small: 13px;
     --font-smaller: 11px;
@@ -1085,6 +1087,8 @@ form.search button:hover {
         visibility: hidden;
         will-change: opacity;
         transition: all .2s ease-in-out;
+        max-height: 220px;
+        overflow: hidden;
     }
     .products.main .item:hover .footer {
         opacity: 1;
@@ -1546,6 +1550,7 @@ form.search button:hover {
     .products .colors {
         display: flex;
         flex-direction: row;
+        flex-wrap: wrap;
         margin-top: 0.5em;
     }
 
@@ -1555,7 +1560,7 @@ form.search button:hover {
     }
 
     .products .color.checked p {
-        background-color: black;
+        background-color: var(--checked-color);
     }
 
     .products .variant form {

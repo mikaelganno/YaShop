@@ -451,10 +451,10 @@
                         </div>
                         <div class="right">
                             <div class="search-box">
-                                <form action="#" class="search">
+                                <form class="search">
                                     <span class="icon-large"><i class="ri-search-line"></i></span>
-                                    <input type="search" placeholder="Search for products">
-                                    <button type="submit">Search</button>
+                                    <input type="search" placeholder="Search for products"  id="search" value="">
+                                    <button type="submit" id="searchButton">Search</button>
                                 </form>
                             </div>
                         </div>
@@ -644,7 +644,7 @@
                                                             </div>
                                                         </li>
                                                         <li class="has-child expand">
-                                                            <a href="#" class="icon-small">Reviews<span class="mini-text">2.2k</span></a>
+                                                            <a href="#" class="icon-small">Reviews<span class="mini-text"></span></a>
                                                             <div class="content">
                                                                 <div class="reviews">
                                                                     <h4>Customers Reviews</h4>
@@ -656,12 +656,12 @@
                                                                             </div>
                                                                             <a href="#review-form" class="secondary-button">write review</a>
                                                                         </div>
-                                                                        <div id="reviews" class="review-block-body">
-                                                                            <ul>
-                                                                                <li class="item">
+                                                                        <div class="review-block-body">
+                                                                            <ul id="reviews">
+                                                                                <!--<li class="item">
                                                                                     <div class="review-form">
-                                                                                        <p class="person">Review by Sarah</p>
-                                                                                        <p class="mini-text">On 7/3/24</p>
+                                                                                        <p class="person"></p>
+                                                                                        <p class="mini-text"></p>
                                                                                     </div>
                                                                                     <div class="review-rating rating">
                                                                                         <div class="stars"></div>
@@ -670,24 +670,9 @@
                                                                                         <p>Awesome product!</p>
                                                                                     </div>
                                                                                     <div class="review-text">
-                                                                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.</p>
+                                                                                        <p></p>
                                                                                     </div>
-                                                                                </li>
-                                                                                <li class="item">
-                                                                                    <div class="review-form">
-                                                                                        <p class="person">Review by Faizal</p>
-                                                                                        <p class="mini-text">On 1/3/24</p>
-                                                                                    </div>
-                                                                                    <div class="review-rating rating">
-                                                                                        <div class="stars"></div>
-                                                                                    </div>
-                                                                                    <div class="review-title">
-                                                                                        <p>Awesome product!</p>
-                                                                                    </div>
-                                                                                    <div class="review-text">
-                                                                                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic impedit ipsum aperiam, ipsam expedita fuga quidem sint dolorum inventore.</p>
-                                                                                    </div>
-                                                                                </li>
+                                                                                </li>-->
                                                                             </ul>
                                                                             <div class="second-links">
                                                                                 <a href="#" class="view-all">View all reviews <i class="ri-arrow-right-line"></i></a>
@@ -758,7 +743,7 @@
                                 </div>
                             </div>
                             <div id="item" class="products main flexwrap">
-                                <div class="item">
+                                <!--<div class="item">
                                     <div class="media">
                                         <div class="thumbnail object-cover">
                                             <a href="">
@@ -1012,7 +997,7 @@
                                             <span class="normal mini-text">XAF7500</span>
                                         </div>
                                     </div>
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -1282,10 +1267,10 @@
                 <div class="wrapper">
 
                     <form action="" class="search">
-                        <a href="#" class="t-close search-close flexcenter"><i class="ri-close-line"></i></a>
+                        <a class="t-close search-close flexcenter"><i class="ri-close-line"></i></a>
                         <span class="icon-large"><i class="ri-search-line"></i></span>
-                        <input type="search" placeholder="Search for products" required>
-                        <button type="submit">Search</button>
+                        <input type="search" placeholder="Search for products"  id="search" value="">
+                        <button type="submit" id="searchButton">Search</button>
                     </form>
                 </div>
             </div>

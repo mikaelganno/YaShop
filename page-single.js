@@ -1,13 +1,14 @@
 // Class Product
 class Product {
-    constructor (id, name, description, price, prix, bigImage, alt, colors, quantity) {
+    constructor (id, name, description, price, prix, images, alt, inwishlist, colors, quantity) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = +price;
         this.prix = +prix;
-        this.bigImage = bigImage;
+        this.images = images;
         this.alt = alt;
+        this.inwishlist = inwishlist;
         this.colors = colors;
         this.quantity = +quantity;
     }
@@ -90,41 +91,7 @@ fetch(newUrl)
                                         </table> 
                                         `;
 
-            const productReviews = document.getElementById("reviews");
-            productReviews.innerHTML = `
-                                        <ul>
-                                            <li class="item">
-                                                <div class="review-form">
-                                                    <p class="person">Review by ${product.reviewn1}</p>
-                                                    <p class="mini-text">On ${product.reviewd1}</p>
-                                                </div>
-                                                <div class="review-rating rating">
-                                                    <div class="stars"></div>
-                                                </div>
-                                                <div class="review-title">
-                                                    <p>Awesome product!</p>
-                                                </div>
-                                                <div class="review-text">
-                                                    <p>${product.reviewt1}</p>
-                                                </div>
-                                            </li>
-                                            <li class="item">
-                                                <div class="review-form">
-                                                    <p class="person">Review by ${product.reviewn2}</p>
-                                                    <p class="mini-text">On ${product.reviewd2}</p>
-                                                </div>
-                                                <div class="review-rating rating">
-                                                    <div class="stars"></div>
-                                                </div>
-                                                <div class="review-title">
-                                                    <p>Awesome product!</p>
-                                                </div>
-                                                <div class="review-text">
-                                                    <p>${product.reviewt2}</p>
-                                                </div>
-                                            </li>
-                                        </ul> 
-                                        `;
+            
             const actions = document.getElementById("actions");
             actions.innerHTML += `
                                     <button class="minus circle" onclick="down()">-</button>
@@ -136,50 +103,58 @@ fetch(newUrl)
 
         function addListProduct(product) {
             const productColors = document.getElementById('colors-button');
-            let dataIndex = 0;
-            let dataId = 0;
-            for (let colors of product.colors) {
-                productColors.innerHTML += ` <div data-id="${dataId}" data-index="${dataIndex}" class="color">
+            for (let colors in product.colors) {
+                productColors.innerHTML += ` <div data-color-id=${colors} class="color">
                                                 <p>
                                                     <input type="radio" name="colors">
-                                                    <label id="product-colors" style="background-color: ${colors}" class="circle"></label>
+                                                    <label id="product-colors" style="background-color: ${product.colors[colors]}" class="circle"></label>
                                                 </p>
                                              </div>
                                         `;
-                dataIndex++;
-                dataId++;
             }
             const productInfos = document.getElementById('infos');
-            for (infos of product.infos) {
-                productInfos.innerHTML += `<li><span>${infos}</span> <span></span></li>
+            for (let infos in product.infos) {
+                productInfos.innerHTML += `<li><span>${infos}</span> <span>${product.infos[infos]}</span></li>
                                         `;
             }
-
-            /*for (infosvalue of product.infosvalue) {
-                productInfos.innerHTML += `<li><span>${infos}</span> <span>${infosvalue}</span></li>
-                                        `;
-            }
-            for (i = 0; i < 2; i++) {
-                alert(product.info);
-            }*/
 
             const productBigImage = document.querySelector('.big-image-wrapper');
-            for (bigImage of product.bigImage) {
+            for (images of product.images) {
                 productBigImage.innerHTML += `
                                             <div class="image-show swiper-slide">
-                                                <a data-fslightbox href="${bigImage}"><img src="${bigImage}" alt="${product.alt}"></a>
+                                                <a data-fslightbox href="${images}"><img src="${images}" alt="${product.alt}"></a>
                                             </div>
                                             `;
             }
             
             const productSmallImage = document.querySelector('.small-image-wrapper');
-            for (smallImage of product.smallImage) {
+            for (images of product.images) {
                 productSmallImage.innerHTML +=  `
                                                 <li class="thumbnail-show swiper-slide">
-                                                    <img src="${smallImage}" alt="${product.alt}">
+                                                    <img src="${images}" alt="${product.alt}">
                                                 </li>
                                             `;
             }
+
+            const productReviews = document.getElementById("reviews");
+                for (i = 0; i < product.reviewtext.length; i++ ) {
+                productReviews.innerHTML += `
+                                <li class="item">
+                                    <div class="review-form">
+                                        <p class="person">Review by ${product.reviewname[i]}</p>
+                                        <p class="mini-text">On ${product.reviewdate[i]}</p>
+                                    </div>
+                                    <div class="review-rating rating">
+                                        <div class="stars"></div>
+                                    </div>
+                                    <div class="review-title">
+                                        <p>${product.reviewtitle[i]}!</p>
+                                    </div>
+                                    <div class="review-text">
+                                        <p>${product.reviewtext[i]}</p>
+                                    </div>
+                                </li>` ;   
+            }    
         }
 
         let btnAddToCart = document.getElementById('addToCart');
@@ -188,12 +163,17 @@ fetch(newUrl)
             colorButton.addEventListener("click", (e) => {
                 alert(e.target.style.backgroundColor);
                 colors = e.target.style;
-                //let ind = colorButton.getAttribute("data-index");
-                //let id = colorButton.getAttribute("data-id");
-                //if (ind === id) {
-                    //colorButton.classList.toggle("checked");
-                    //colorButton.style.backgroundColor = colors.backgroundColor;
-                //}
+                /*if(product.inwishlist === false) {
+                    wishList.classList.add('heart');
+                } elif (product.inwishlist === true) {
+                    wishList.classList.remove('heart');
+                }*/              
+                let colorId = colorButton.getAttribute("data-color-id");
+                if (colors.backgroundColor === product.colors[colorId]) {
+                colorButton.classList.toggle("checked");
+                document.documentElement.style.setProperty('--checked-color', colors.backgroundColor);
+                //colorButton.style.backgroundColor = colors.backgroundColor;
+                }
             })  
         })
         
@@ -206,7 +186,7 @@ fetch(newUrl)
                 product.description,
                 product.price,
                 product.prix,
-                product.bigImage,
+                product.images,
                 product.alt,
                 colors.backgroundColor,
                 quantity.value
@@ -253,8 +233,9 @@ fetch(newUrl)
                     product.description,
                     product.price,
                     product.prix,
-                    product.bigImage,
+                    product.images,
                     product.alt,
+                    product.inwishlist,
                     colors.backgroundColor,
                     quantity.value,
                 );
@@ -279,6 +260,7 @@ fetch(newUrl)
                         wishCart[indexModification].quantity = +wishCart[indexModification].quantity + +objectProduct.quantity;
                         localStorage.setItem("wishproducts", JSON.stringify(wishCart));
                     } else {
+                        objectProduct.inwishlist = true;
                         wishCart.push(objectProduct);
                         localStorage.setItem("wishproducts", JSON.stringify(wishCart));
                     }
@@ -287,17 +269,11 @@ fetch(newUrl)
                     //location.reload();
                 }             
             } else {
+                product.inwishlist = false;
                 wishList.classList.remove('heart');
             }
         })
-    })
-    .catch((error) => {
-        alert(
-            "attention votre serveur Node n'est pas lancé ! 🙆‍♂️"
-        )
-    });
 
-    
     // Modifier la qauntité des produits
     function down() {
         n = document.getElementById('quantityProd');
@@ -309,36 +285,6 @@ fetch(newUrl)
     function up() {
         n = document.getElementById('quantityProd');
         n.value = parseInt(n.value) + 1;
-    }
-
-    // SearchBar Events 
-    const searchBarList = document.querySelectorAll('#search');
-    searchBarList.forEach(searchBar => {
-        searchBar.addEventListener("keyup", (e) => {
-            const searchedLetters = e.target.value;
-            const searchButtonList = document.querySelectorAll("#searchButton");
-            const cardfeat = document.querySelectorAll("#item .item, #items .item");
-            console.log(cardfeat);
-            filterElements(searchedLetters, cardfeat);
-            searchBar.addEventListener("click", () => {
-                location.reload();
-            });
-            searchButtonList.forEach(searchButton => {
-                searchButton.addEventListener("click", filterElements(searchedLetters, cardfeat));
-            })
-        });
-    })
-
-    function filterElements(letters, elements) {
-        if (letters.length > 0) {
-            for (let i = 0; i < elements.length; i++) {
-                if (elements[i].textContent.toLowerCase().includes(letters)) {
-                    elements[i].style.display = "block";
-                } else {
-                    elements[i].style.display = "none";
-                }
-            }
-        }
     }
 
     // product image slider
@@ -354,7 +300,7 @@ fetch(newUrl)
             }
         }
     });
-    var productBig = new Swiper ('.big-image-wrapper', {
+    var productBig = new Swiper ('.big-image', {
         loop: true,
         autoHeight: true,
         navigation: {
@@ -365,4 +311,120 @@ fetch(newUrl)
             swiper: productThumb,
         }
     })
+    })
+    .catch((error) => {
+        alert(
+            "attention votre serveur Node n'est pas lancé ! 🙆‍♂️"
+        )
+    });
+
+// Url de l'API pour recuperer tous les produits
+const url = 'http://localhost:3000/api/products/';
+
+fetch(url)
+    .then(response => response.json())
+    .then((data) => {
+        
+        addToCard(data);
+    })
+    .catch((error) => {
+        alert("Votre serveur Node n'est pas lancé ! 🙆‍♂️")
+    });
+
+
+    function addToCard(data) {
+        for (prod of data) {
+            const featItem = document.getElementById('item');            
+             
+            featItem.innerHTML += `
+                            
+                                <div class="item">
+                                    <div class="media">
+                                        <div class="thumbnail object-cover">
+                                        <a href="./page-single-copie.html?_id=${prod._id}">
+                                                <img src="${prod.images[0]}" alt="${prod.alt}">
+                                        </a>
+                                        </div>
+                                        <div class="hoverable">
+                                            <ul>
+                                                <li class="active"><a href="./page-single-copie.html?_id=${prod._id}"><i class="ri-heart-line"></i></a></li>
+                                                <li><a href="${prod.images[0]}"><i class="ri-eye-line"></i></a></li>
+                                                <li><a href=""><i class="ri-shuffle-line"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="discount circle flexcenter"><span>${parseInt(100 - prod.price/prod.prix*100)}%</span></div>
+                                    </div>
+                                    <div class="content">
+                                        <div class="rating">
+                                            <div class="stars"></div>
+                                        </div>
+                                        <h3><a href="#">${prod.name}</a></h3>
+                                        <div class="price">
+                                            <span class="current">XAF${prod.price}</span>
+                                            <span class="normal mini-text">XAF${prod.prix}</span>
+                                        </div>
+                                        
+                                        <div class="footer">
+                                            <ul class="mini-text">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                `;
+                                addInfos();
+
+        // SearchBar Events 
+    const searchBarList = document.querySelectorAll('#search');
+    searchBarList.forEach(searchBar => {
+        searchBar.addEventListener("keyup", (e) => {
+            const searchedLetters = e.target.value;
+            const searchButtonList = document.querySelectorAll("#searchButton");
+            const cardfeat = document.querySelectorAll("#item .item");
+            console.log(cardfeat);
+            filterElements(searchedLetters, cardfeat);
+            searchBar.addEventListener("click", () => {
+                location.reload();
+            });
+            searchButtonList.forEach(searchButton => {
+                searchButton.addEventListener("click", filterElements(searchedLetters, cardfeat));
+            })
+        });
+    })
+
+        }
+        
+        function addInfos() {
+            const addinfos = document.querySelectorAll('.footer .mini-text');
+            addinfos.forEach(addinfo => {
+                for (let infos in prod.infos) {
+                    addinfo.innerHTML += `<li>${infos + ": " + prod.infos[infos]}</li>
+                                            `;
+                }         
+            })
+            
+        }
+
+        function filterElements(letters, elements) {
+            if (letters.length > 0) {
+                for (let i = 0; i < elements.length; i++) {
+                    if (elements[i].textContent.toLowerCase().includes(letters)) {
+                        elements[i].style.display = "grid";
+                    } else {
+                        elements[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        
+    
+    }
+
+
+    
+
+    
+
+    
+    
 
